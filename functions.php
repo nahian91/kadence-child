@@ -73,7 +73,7 @@ function ff_custom_post_type() {
       'has_archive'        => true,
       'hierarchical'       => false,
       'menu_position'      => null,
-      'supports'           => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments')
+      'supports'           => array('title')
   );
 
   register_post_type('integrations', $args);
@@ -122,3 +122,109 @@ register_taxonomy('forms-demo-category', 'form_demos', array(
 }
 
 add_action('init', 'ff_custom_post_type');
+
+
+/* Register ACF Block */
+
+add_action('acf/init', 'ff_acf_init_block_types');
+function ff_acf_init_block_types() {
+
+    // Check function exists.
+    if( function_exists('acf_register_block_type') ) {
+
+    // register hero blocks.
+    acf_register_block_type(array(
+      'name'              => 'hero',
+      'title'             => __('Hero', 'kadence'),
+      'description'       => __('A custom description section.', 'kadence'),
+      'render_callback'   => 'ff_acf_block_render_callback',
+      'category'          => 'formatting',
+      'icon'              => 'admin-comments',
+      'keywords'          => array( 'hero', 'fluent' ),
+    ));
+
+    // register cta blocks.
+    acf_register_block_type(array(
+      'name'              => 'cta',
+      'title'             => __('CTA', 'kadence'),
+      'description'       => __('A custom Collection Box section.', 'kadence'),
+      'render_callback'   => 'ff_acf_block_render_callback',
+      'category'          => 'formatting',
+      'icon'              => 'admin-comments',
+      'keywords'          => array( 'cta', 'fluent' ),
+    ));
+
+    // register prices blocks.
+    acf_register_block_type(array(
+      'name'              => 'prices',
+      'title'             => __('Prices', 'kadence'),
+      'description'       => __('A custom Collection Box section.', 'kadence'),
+      'render_callback'   => 'ff_acf_block_render_callback',
+      'category'          => 'formatting',
+      'icon'              => 'admin-comments',
+      'keywords'          => array( 'prices', 'fluent' ),
+    ));
+
+    // register forms demo blocks.
+    acf_register_block_type(array(
+      'name'              => 'forms-demo',
+      'title'             => __('Forms Demo', 'kadence'),
+      'description'       => __('A custom Collection Box section.', 'kadence'),
+      'render_callback'   => 'ff_acf_block_render_callback',
+      'category'          => 'formatting',
+      'icon'              => 'admin-comments',
+      'keywords'          => array( 'forms', 'fluent' ),
+    ));
+
+    // register forms demo blocks.
+    acf_register_block_type(array(
+      'name'              => 'integrations',
+      'title'             => __('Integrations', 'kadence'),
+      'description'       => __('A custom Collection Box section.', 'kadence'),
+      'render_callback'   => 'ff_acf_block_render_callback',
+      'category'          => 'formatting',
+      'icon'              => 'admin-comments',
+      'keywords'          => array( 'integrations', 'fluent' ),
+    ));
+
+    // register posts query blocks.
+    acf_register_block_type(array(
+      'name'              => 'posts',
+      'title'             => __('Posts Query', 'kadence'),
+      'description'       => __('A custom Collection Box section.', 'kadence'),
+      'render_callback'   => 'ff_acf_block_render_callback',
+      'category'          => 'formatting',
+      'icon'              => 'admin-comments',
+      'keywords'          => array( 'posts', 'fluent' ),
+    ));
+
+    // register featured post blocks.
+    acf_register_block_type(array(
+      'name'              => 'featured-post',
+      'title'             => __('Featured Post', 'kadence'),
+      'description'       => __('A custom Collection Box section.', 'kadence'),
+      'render_callback'   => 'ff_acf_block_render_callback',
+      'category'          => 'formatting',
+      'icon'              => 'admin-comments',
+      'keywords'          => array( 'posts', 'fluent' ),
+    ));
+  }
+}
+
+function ff_acf_block_render_callback( $block ) {
+
+	$slug = str_replace( 'acf/', '', $block['name'] );
+	if ( file_exists( get_theme_file_path( "/template-parts/blocks/ff-{$slug}/ff-{$slug}.php" ) ) ) {
+		include( get_theme_file_path( "/template-parts/blocks/ff-{$slug}/ff-{$slug}.php" ) );
+	}
+}
+
+
+function ff_author_posts_limit( $query ) {
+  // Check if the query is for an author archive
+  if ( $query->is_author() && $query->is_main_query() ) {
+      // Set the number of posts you want to display per page
+      $query->set( 'posts_per_page', 6 ); // Change 10 to the desired number
+  }
+}
+add_action( 'pre_get_posts', 'ff_author_posts_limit' );

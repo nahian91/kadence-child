@@ -1,20 +1,20 @@
 <?php get_header(); ?>
 
 <?php 
-    // Set the Current Author Variable $curauth
-    $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
+    $auth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
+    $full_size_avatar_url = get_avatar_url($auth, array('size' => 'full'));
 ?>
 
 <section class="author-info-area">
     <div class="site-container">
         <div class="author-info">
             <div class="author-img">
-                <?php echo get_avatar( $curauth->user_email , '90 '); ?>
+                <img src="<?php echo $full_size_avatar_url;?>" alt="">
             </div>
             <div class="author-bio">
-                <h4><?php echo $curauth->display_name; ?></h4>
+                <h4><?php echo $auth->display_name; ?></h4>
                 <h5>Founder & Managing Director</h5>
-                <p><?php echo $curauth->user_description; ?></p>
+                <p><?php echo $auth->user_description; ?></p>
                 <div class="author-social">
                     <span><a href="">facebook.com</a></span>
                     <span><a href="">facebook.com</a></span>
@@ -46,6 +46,17 @@
                 <span><?php the_time('d M, Y'); ?></span>
             </div>
             <?php endwhile; endif; ?>
+           
+        </div>
+        
+        <div class="pagination-box">
+            <?php
+                echo paginate_links( array(
+                    'prev_text' => '&laquo;',
+                    'next_text' => '&raquo;',
+                    'type'      => 'list', // Use 'list' for numeric pagination
+                ) );
+            ?>
         </div>
     </div>
 </section>

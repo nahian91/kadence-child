@@ -23,6 +23,8 @@ do_action( 'kadence_after_content' );
 $footer_about = get_field('footer_about', 'option');
 $footer_logo = $footer_about['footer_logo']['url'];
 $footer_description = $footer_about['footer_description'];
+$footer_form = $footer_about['footer_form'];
+$footer_socials = $footer_about['footer_socials'];
 $footer_menu_title = get_field('footer_menu_title', 'option');
 $footer_menu_title1 = $footer_menu_title['footer_menu_1_title'];
 $footer_menu_title2 = $footer_menu_title['footer_menu_2_title'];
@@ -44,6 +46,22 @@ $footer_menu_title5 = $footer_menu_title['footer_menu_5_title'];
                         }
                     ?>
                     <p><?php echo $footer_description;?></p>
+                    <?php echo $footer_form;?>
+                    <span>We won't send you spam. <br>Unsubscribe at any time.</span>
+                    <div class="footer-social">
+                        <?php  
+                            if($footer_socials) {
+                                foreach($footer_socials as $social) {
+                                    ?>                                    
+                                        <a href="<?php echo $social['footer_social_url']; ?>"><img src="<?php echo $social['footer_social_icon']['url']; ?>" alt=""></a>
+                                    <?php
+                                }
+                                ?>
+                                    
+                                <?php
+                            }
+                        ?>
+                    </div>
                 </div>
                 <div class="single-footer">
                     <?php 

@@ -41,7 +41,7 @@ $header_buttons = get_field('buttons', 'option');
 	<header class="site-header">
 		<div class="site-container">
 			<div class="header">
-				<a href="" class="logo">
+				<a href="<?php echo site_url(); ?>" class="logo">
 					<?php 
 						if($header_logo){
 							?>
