@@ -3,6 +3,7 @@
 if ( ! function_exists( 'kadence_child_register_nav_menu' ) ) {
 	function kadence_child_register_nav_menu(){
 		register_nav_menus( array(
+	    	'main_menu' => __( 'Main Menu', 'kadence' ),
 	    	'footer_1' => __( 'Footer 1', 'kadence' ),
 	    	'footer_2' => __( 'Footer 2', 'kadence' ),
 	    	'footer_3' => __( 'Footer 3', 'kadence' ),

@@ -15,6 +15,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+/**
+ * Hook for bottom of inner wrap.
+ */
+do_action( 'kadence_after_content' );
+
 $footer_about = get_field('footer_about', 'option');
 $footer_logo = $footer_about['footer_logo']['url'];
 $footer_description = $footer_about['footer_description'];
@@ -116,6 +121,7 @@ $footer_menu_title5 = $footer_menu_title['footer_menu_5_title'];
         </div>
     </section>
 </div><!-- #wrapper -->
+<?php do_action( 'kadence_after_wrapper' ); ?>
 
 <?php wp_footer(); ?>
 </body>

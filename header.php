@@ -31,25 +31,40 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Kadence before wrapper hook.
  */
 do_action( 'kadence_before_wrapper' );
+
+$header_logo = get_field('logo', 'option');
+$header_buttons = get_field('buttons', 'option');
+
 ?>
 <div id="wrapper" class="site wp-site-blocks">
-	<?php
-	/**
-	 * Kadence before header hook.
-	 *
-	 * @hooked kadence_do_skip_to_content_link - 2
-	 */
-	do_action( 'kadence_before_header' );
-
-	/**
-	 * Kadence header hook.
-	 *
-	 * @hooked Kadence/header_markup - 10
-	 */
-	do_action( 'kadence_header' );
-
-	do_action( 'kadence_after_header' );
-	?>
+	
+	<header class="site-header">
+		<div class="site-container">
+			<div class="header">
+				<a href="" class="logo">
+					<?php 
+						if($header_logo){
+							?>
+								<img src="<?php echo esc_url($header_logo['url']); ?>" alt="<?php echo esc_url($header_logo['alt']); ?>">
+							<?php 
+						}
+					?>
+				</a>
+				<?php 
+                    if ( has_nav_menu( 'main_menu' ) ) {
+                        wp_nav_menu( array( 'theme_location' => 'main_menu' ) );
+                    }
+                ?>
+				<?php 
+					if($header_buttons['button_url']) {
+						?>
+							<a href="<?php echo esc_url($header_buttons['button_url']); ?>" class="btn-bg-white"><?php echo $header_buttons['button_text']; ?></a>
+						<?php 
+					}
+				?>
+			</div>
+		</div>
+	</header>
 
 	<div id="inner-wrap" class="wrap hfeed kt-clear">
 		<?php
@@ -58,4 +73,3 @@ do_action( 'kadence_before_wrapper' );
 		 */
 		do_action( 'kadence_before_content' );
 		?>
-rtretretretert
