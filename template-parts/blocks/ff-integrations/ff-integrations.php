@@ -19,33 +19,13 @@ if( !empty($block['align']) ) {
     $className .= ' align' . $block['align'];
 }
 
-// Load values and assing defaults.
-
-$test =  get_field('test');
-// $hero_content =  get_field('content');
-// $hero_button_1_text =  get_field('button_1_text');
-// $hero_button_1_url =  get_field('button_1_url');
-// $hero_button_2_text =  get_field('button_2_text');
-// $hero_button_2_url =  get_field('button_2_url');
-// $hero_image_desktop_array = get_field('image_desktop');
-// if(!empty($hero_image_desktop_array)){
-//     $hero_image_desktop_alt = $hero_image_desktop_array['alt'];
-//     $hero_image_desktop_id = $hero_image_desktop_array['ID'];
-//     $hero_image_desktop_url = ewa_get_image_url_from_image_id( $hero_image_desktop_id, 'large' );
-// }
-// $hero_image_mobile_array = get_field('image_mobile');
-// if(!empty($hero_image_mobile_array)){
-//     $hero_image_mobile_alt = $hero_image_mobile_array['alt'];
-//     $hero_image_mobile_id = $hero_image_mobile_array['ID'];
-//     $hero_image_mobile_url = ewa_get_image_url_from_image_id( $hero_image_mobile_id, 'large' );
-// }
-
 ?>
 
 <section class="integrations-area">
     <div class="site-container">
         <div class="forms-demo">
             <div class="forms-demo-category">
+                <?php get_search_form(); ?>
                 <h4>Categories</h4>
                 <?php
                     $categories = get_terms(array(

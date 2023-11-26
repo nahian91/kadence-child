@@ -44,7 +44,6 @@ $hero_title =  get_field('hero_title');
 ?>
 
 <section class="forms-demo-area">
-    <div class="site-container">
         <div class="forms-demo">
             <div class="forms-demo-category">
                 <h4>Categories</h4>
@@ -72,7 +71,7 @@ $hero_title =  get_field('hero_title');
                     foreach ($categories as $category) :
                     $args = array(
                         'post_type' => 'form-demos',
-                        'posts_per_page' => -1,
+                        'posts_per_page' => 12,
                         'tax_query' => array(
                             array(
                                 'taxonomy' => 'forms-demo-category',
@@ -88,7 +87,8 @@ $hero_title =  get_field('hero_title');
                         <?php
                             if ($custom_query->have_posts()) {
                                 while ($custom_query->have_posts()) : $custom_query->the_post();
-                                    $forms_demo_short_description =  get_field('forms_demo_short_description');
+                                    $post_id = get_the_ID();
+                                    $forms_demo_short_description =  get_field('forms_demo_short_description', $post_id);
                                     ?>
                                         <div class="single-forms-demo-content">
                                             <img src="<?php the_post_thumbnail_url();?>" alt="">
@@ -103,6 +103,18 @@ $hero_title =  get_field('hero_title');
                                         </div>
                                     <?php
                                 endwhile;
+                                // Output pagination links
+    echo '<div class="pagination">';
+    echo paginate_links(array(
+        'base'      => get_pagenum_link(1) . '%_%',
+        'format'    => 'page/%#%',
+        'current'   => max(1, get_query_var('paged')),
+        'total'     => $custom_query->max_num_pages,
+        'prev_text' => '&laquo; Previous',
+        'next_text' => 'Next &raquo;',
+    ));
+    echo '</div>';
+
                                 wp_reset_postdata(); // Reset the post data to the main query.
                             }
                             ?>
@@ -112,5 +124,4 @@ $hero_title =  get_field('hero_title');
                 ?>
                 </div>
         </div>
-    </div>
 </section>

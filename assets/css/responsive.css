@@ -1,0 +1,123 @@
+/* Medium Layout: 1280px. */
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+}
+
+/* Tablet Layout: 768px. */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+}
+
+/* Mobile Layout: 320px. */
+
+@media only screen and (max-width: 767px) {
+
+    /* Integrations */    
+    .hero {
+        flex-direction: column-reverse;
+    }
+    .hero-content h4 {
+        font-size: 30px;
+        line-height: 40px;
+        margin-bottom: 10px;
+    }
+    .forms-demo {
+        flex-direction: column;
+    }
+    .integrations-area .forms-demo-category, .integrations-area .forms-demo-content, .forms-demo-category, .forms-demo-content, .single-forms-demo-content {
+        flex-basis: 100%;
+    }
+    .forms-demo-category .search-form {
+        margin-bottom: 20px;
+    }
+    .forms-demo-category h4 {
+        margin-bottom: 5px;
+    }
+    .integrations-area .forms-demo-category {
+        margin-bottom: 40px;
+    }
+    .single-integration-box {
+        flex-basis: 100%;
+    }
+    .section-title {
+        font-size: 30px;
+        line-height: 40px;
+        margin-bottom: 20px;
+    }
+    .similar-templates {
+        flex-direction: column;
+    }
+    .form-demos-about-area {
+        padding: 30px 0;
+    }
+    .single-form-features {
+        flex-direction: column;
+    }
+    .form-demos-preview h2 {
+        font-size: 30px;
+    }
+
+    /* Blogs */
+    .single-post {
+        flex-basis: 100%;
+    }    
+    .featured-post {
+        flex-direction: column-reverse;
+    }
+    .featured-post-area, .posts-area {
+        padding: 30px 0;
+    }
+    .featured-post-content h4 {
+        font-size: 24px;
+        line-height: 35px;
+        margin-bottom: 15px;
+    }
+
+    /* Privacy Policy Terms Page */
+    .entry-content #fluent-forms-terms--conditions, #fluent-forms-privacy-policy {
+        font-size: 35px !important;
+        line-height: 50px !important;
+        margin-bottom: 0;
+    }
+    .page-helper p {
+        font-size: 16px;
+        line-height: 28px;
+    }
+
+    /* Footer */    
+    .footer {
+        flex-direction: column;
+    }
+    .site-footer-area {
+        padding-top: 40px;
+        padding-bottom: 0px;
+    }
+    .footer-about {
+        margin-bottom: 30px;
+    }
+    .footer-about .ff-btn-submit {
+        bottom: 20px;
+    }
+    .single-footer h4 {
+        margin-bottom: 5px;
+    }
+    .single-footer {
+        margin-bottom: 30px;
+    }
+    .footer-bottom {
+        flex-direction: column;
+    }
+    .footer-bottom p {
+        text-align: center;
+    }
+    #menu-footer-menu {
+        margin-top: 15px;
+    }
+    #scroll-to-top {
+        display: none;
+    }
+}
+
+/* Wide Mobile Layout: 480px. */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {}

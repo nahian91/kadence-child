@@ -40,4 +40,37 @@ jQuery(document).ready(function($) {
       $(".tab-button" + tabId).addClass("active-tab");
       $(this).addClass("active-button");
     });
+
+
+    var scrollToTopButton = $('#scroll-to-top');
+
+        // Show/hide the button based on scroll position
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 200) { // Adjust the scroll position threshold as needed
+                scrollToTopButton.addClass('visible');
+            } else {
+                scrollToTopButton.removeClass('visible');
+            }
+        });
+
+        // Smooth scroll to top when the button is clicked
+        scrollToTopButton.click(function(e) {
+            e.preventDefault();
+            $('html, body').animate({
+                scrollTop: 0
+            }, 500); // Adjust the animation speed as needed
+        });
+
   });
+
+
+  window.addEventListener('scroll', function() {
+    var header = document.querySelector('header');
+    var scrollPosition = window.scrollY;
+
+    if (scrollPosition > 100) { // Adjust the scroll position threshold as needed
+        header.classList.add('sticky');
+    } else {
+        header.classList.remove('sticky');
+    }
+});
