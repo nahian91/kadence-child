@@ -1,4 +1,5 @@
-<?php
+<?php 
+
 class Custom_Widget extends WP_Widget {
     
     // Constructor function
@@ -11,23 +12,23 @@ class Custom_Widget extends WP_Widget {
             )
         );
     }
-
+  
     // Output the widget content
     public function widget($args, $instance) {
         $title = apply_filters('widget_title', $instance['title']);
         $message = isset($instance['message']) ? $instance['message'] : '';
-
+  
         echo $args['before_widget'];
-
+  
         if (!empty($title)) {
             echo $args['before_title'] . $title . $args['after_title'];
         }
-
+  
         echo '<p>' . esc_html($message) . '</p>';
-
+  
         echo $args['after_widget'];
     }
-
+  
     // Output the widget form in the admin
     public function form($instance) {
         $title = isset($instance['title']) ? esc_attr($instance['title']) : '';
@@ -43,7 +44,7 @@ class Custom_Widget extends WP_Widget {
         </p>
         <?php
     }
-
+  
     // Update widget settings
     public function update($new_instance, $old_instance) {
         $instance = array();
@@ -51,11 +52,10 @@ class Custom_Widget extends WP_Widget {
         $instance['message'] = (!empty($new_instance['message'])) ? strip_tags($new_instance['message']) : '';
         return $instance;
     }
-}
-
-// Register the widget
-function register_custom_widget() {
+  }
+  
+  // Register the widget
+  function register_custom_widget() {
     register_widget('Custom_Widget');
-}
-
-add_action('widgets_init', 'register_custom_widget');
+  }
+  add_action('widgets_init', 'register_custom_widget');
