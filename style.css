@@ -45,7 +45,13 @@ what you've learned with others.
 body{
     font-family: axiforma-regular !important;
 }
-
+h1, h2, h3, h4{
+  font-family: axiforma-bold !important;
+  font-weight: 700;
+}
+p{
+  margin: 0;
+}
 /* Header */
 
 .header {
@@ -581,6 +587,10 @@ body{
 	margin-bottom: 60px;
 }
 
+.home .prices-area{
+  background-color: #fff;
+  padding: 90px 0 100px;
+}
 .price-content {
   display: none;
 }
@@ -841,14 +851,14 @@ body{
 
 .forms-tab-content.active-tab {
   display: flex;
-  justify-content: space-between;
+  gap: 30px;
   flex-wrap: wrap;
   margin-bottom: 30px;
 }
 .single-forms-demo-content {
   border: 0.661px solid #E8E8E8;
   border-radius: 3.307px;
-  flex-basis: 32%;
+  flex-basis: 31%;
   background-color: #fff;
   transition: .3s;
 }
@@ -880,12 +890,11 @@ body{
   border-radius: 3.77px;
   text-decoration: none;
   position: absolute;
-  bottom: -80px;
   transition: .3s;
 }
-.single-forms-demo-content:hover a {
+/* .single-forms-demo-content:hover a {
   bottom: 0;
-}
+} */
 .single-forms-demo-content:hover p {
   display: none;
 }
@@ -1021,4 +1030,36 @@ body{
 .used-fields-container p {
   color: #696F84;
   margin: 0;
+}
+
+
+.integrations-area .forms-demo-category {
+  padding: 0;
+}
+.integrations-area {
+  background-color: #fff;
+  padding: 100px 0;
+}
+.single-integration-box {
+  border: 1px solid #B2C6DE;
+  padding: 30px;
+  border-radius: 5px;
+  flex-basis: 31%;
+}
+.single-integration-box img {
+  width: 40px;
+}
+
+.single-integration-box p {
+  color: #696F84;
+  font-size: 16px;
+}
+.single-integration-box h4 {
+  margin: 21px 0 14px;
+}
+.integrations-area .forms-demo-content {
+  flex-basis: 80%;
+}
+.integrations-area .forms-demo-category {
+  flex-basis: 15%;
 }

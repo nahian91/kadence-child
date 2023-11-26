@@ -33,10 +33,19 @@ function ff_custom_post_type() {
         'hierarchical'       => false,
         'menu_position'      => null,
         'menu_icon'          => 'dashicons-admin-tools',
-        'supports'           => array('title', 'editor')
+        'supports'           => array('title')
     );
 
     register_post_type('integrations', $args_integrations);
+
+    // Custom Taxonomy: Integrations
+    register_taxonomy('integrations-category', 'integrations', array(
+      'label' => 'Category',
+      'hierarchical' => true,
+      'show_ui' => true,
+      'query_var' => true,
+      'rewrite' => array('slug' => 'integrations-category'),
+    ));
   
     // CPT - Fluent Forms Demo
     $labels_forms_demo = array(
@@ -80,7 +89,7 @@ function ff_custom_post_type() {
     'hierarchical' => true,
     'show_ui' => true,
     'query_var' => true,
-    'rewrite' => array('slug' => 'custom-category'),
+    'rewrite' => array('slug' => 'forms-demo-category'),
   ));
 }
 add_action('init', 'ff_custom_post_type');

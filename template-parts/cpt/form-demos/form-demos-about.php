@@ -1,6 +1,7 @@
 <?php 
-    $forms_demo_about_title = get_field('forms_demo_about_title');
-    $forms_demo_about_description = get_field('forms_demo_about_description');
+    $post_id = get_the_ID();
+    $forms_demo_about_title = get_field('forms_demo_about_title', $post_id);
+    $forms_demo_about_description = get_field('forms_demo_about_description', $post_id);
 ?>
 
 <section class="form-demos-about-area">

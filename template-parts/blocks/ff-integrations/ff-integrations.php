@@ -21,7 +21,7 @@ if( !empty($block['align']) ) {
 
 // Load values and assing defaults.
 
-// $hero_title =  get_field('title');
+$test =  get_field('test');
 // $hero_content =  get_field('content');
 // $hero_button_1_text =  get_field('button_1_text');
 // $hero_button_1_url =  get_field('button_1_url');
@@ -42,43 +42,71 @@ if( !empty($block['align']) ) {
 
 ?>
 
-<!-- CTA Section Start --->
-<section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>-area">
+<section class="integrations-area">
     <div class="site-container">
-    <?php
-// Define your custom query to get posts based on categories
-$categories = get_terms('your_custom_taxonomy'); // replace 'your_custom_taxonomy' with the actual taxonomy name
+        <div class="forms-demo">
+            <div class="forms-demo-category">
+                <h4>Categories</h4>
+                <?php
+                    $categories = get_terms(array(
+                        'taxonomy' => 'integrations-category',
+                        'hide_empty' => true,                    
+                    ));
 
-foreach ($categories as $category) {
-    $args = array(
-        'post_type'      => 'your_custom_post_type',
-        'posts_per_page' => -1,
-        'tax_query'      => array(
-            array(
-                'taxonomy' => 'your_custom_taxonomy',
-                'field'    => 'slug',
-                'terms'    => $category->slug,
-            ),
-        ),
-    );
-
-    $query = new WP_Query($args);
-
-    if ($query->have_posts()) {
-        echo '<div id="' . $category->slug . '" class="tab-content">';
-        while ($query->have_posts()) {
-            $query->the_post();
-            // Output your post content here
-            echo '<h2>' . get_the_title() . '</h2>';
-            echo '<div>' . get_the_content() . '</div>';
-        }
-        echo '</div>';
-    }
-
-    wp_reset_postdata();
-}
-?>
-
+                    if (!is_wp_error($categories) && !empty($categories)) {
+                        ?>
+                            <ul>
+                                <?php foreach ($categories as $category) { ?>
+                                    <li class="tab-button" data-tab="<?php echo esc_attr($category->slug); ?>"><?php echo esc_html($category->name); ?></li>
+                                <?php 
+                            } 
+                        } 
+                        ?>
+                            </ul>
+                        <?php 
+                    ?>
+                </div>
+                <div class="forms-demo-content">
+                <?php
+                    foreach ($categories as $category) :
+                    $args = array(
+                        'post_type' => 'integrations',
+                        'posts_per_page' => -1,
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'integrations-category',
+                                'field' => 'slug',
+                                'terms' => $category->slug,
+                                'hide_empty' => true,
+                            ),
+                        ),
+                    );
+                    $custom_query = new WP_Query($args); ?>
+                    <div class="forms-tab-content" id="<?php echo esc_attr($category->slug); ?>">
+                        <?php
+                            if ($custom_query->have_posts()) {
+                                while ($custom_query->have_posts()) : $custom_query->the_post();
+                                    $post_id = get_the_ID();
+                                    $integration_image = get_field('integration_info_image', $post_id);
+                                    $integration_title = get_field('integration_title', $post_id);
+                                    $integration_description = get_field('integration_description', $post_id);
+                                    ?>
+                                        <div class="single-integration-box">
+                                            <img src="<?php echo $integration_image;?>" alt="">
+                                            <h4><?php echo $integration_title;?></h4>
+                                            <p><?php echo $integration_description;?></p>
+                                        </div>
+                                    <?php
+                                endwhile;
+                                wp_reset_postdata(); // Reset the post data to the main query.
+                            }
+                            ?>
+                        </div>
+                    <?php
+                endforeach;
+                ?>
+                </div>
+        </div>
     </div>
 </section>
 <!-- CTA Section End -->	
