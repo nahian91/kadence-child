@@ -68,7 +68,7 @@ jQuery(document).ready(function($) {
     var header = document.querySelector('header');
     var scrollPosition = window.scrollY;
 
-    if (scrollPosition > 100) { // Adjust the scroll position threshold as needed
+    if (scrollPosition > 500) { // Adjust the scroll position threshold as needed
         header.classList.add('sticky');
     } else {
         header.classList.remove('sticky');

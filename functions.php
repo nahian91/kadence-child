@@ -26,6 +26,14 @@ function ff_enqueue_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'ff_enqueue_styles' );
 
+// Comment Form Button Text Change
+function custom_comment_form_submit_text($args) {
+    $args['label_submit'] = 'Submit Comment';
+    return $args;
+}
+
+add_filter('comment_form_defaults', 'custom_comment_form_submit_text');
+
 // Author Page Posts Limit
 function ff_author_posts_limit( $query ) {
   if ( $query->is_author() && $query->is_main_query() ) {

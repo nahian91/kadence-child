@@ -1,24 +1,33 @@
 <?php get_header(); ?>
 
 <?php 
+    $author_id = get_current_user_id();
     $auth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
-    $full_size_avatar_url = get_avatar_url($auth, array('size' => 'full'));
+
+    $author_avatar = get_field('author_image', 'user_' . $author_id);
+    $author_desc = get_field('author_designation', 'user_' . $author_id);
+    $author_socials = get_field('author_socials', 'user_' . $author_id);
+    $author_socials_list = $author_socials['author_social_lists'];
 ?>
 
 <section class="author-info-area">
     <div class="site-container">
         <div class="author-info">
             <div class="author-img">
-                <img src="<?php echo $full_size_avatar_url;?>" alt="">
+                <img src="<?php echo $author_avatar;?>" alt="">
             </div>
             <div class="author-bio">
                 <h4><?php echo $auth->display_name; ?></h4>
-                <h5>Founder & Managing Director</h5>
+                <h5><?php echo $author_desc;?></h5>
                 <p><?php echo $auth->user_description; ?></p>
                 <div class="author-social">
-                    <span><a href="">facebook.com</a></span>
-                    <span><a href="">facebook.com</a></span>
-                    <span><a href="">facebook.com</a></span>
+                    <?php 
+                        foreach($author_socials_list as $social) {
+                            ?>
+                                <span><a href="<?php echo esc_url($social['author_social_url']);?> ?>"><img src="<?php echo $social['author_social_icon'];?>" alt=""> <?php echo $social['author_social_label'];?></a></span>
+                            <?php
+                        }
+                    ?>
                 </div>
             </div>
         </div>

@@ -12,6 +12,61 @@
 
 @media only screen and (max-width: 767px) {
 
+
+    /* Author */
+    .single-author-posts {
+        flex-basis: 100%;
+    }
+    .author-img {
+        flex-basis: 100%;
+    }
+    .author-bio h4 {
+        font-size: 35px;
+        line-height: 45px;
+        margin-top: 20px;
+    }
+
+    /* Single Post */
+    .single-post-content h4 {
+        font-size: 30px;
+        line-height: 40px;
+    }       
+    .single-post-layout {
+        width: 100%;
+    }
+    .author-img {
+        f: ;
+    }
+    .single-post-author {
+        flex-direction: column;
+    }
+    .author-content {
+        margin-top: 20px;
+        margin-left: 0;
+    }
+    .single-posr-related-layout {
+        flex-direction: column;
+    }
+    .single-related-post {
+        flex-basis: 100%;
+    }
+    .single-post-content {
+        flex-basis: 100%;
+    }
+    .single-post-sidebar {
+        flex-basis: 100%;
+    } 
+
+    /* Prices */
+    .price-content.active-tab .single-price {
+        flex-basis: 100%;
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+    .kadence-column10_3bbaa1-2a > .kt-inside-inner-col {
+        padding-left: 0;
+    }
+
     /* Integrations */    
     .hero {
         flex-direction: column-reverse;
