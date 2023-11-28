@@ -3,7 +3,7 @@
 <section class="category-archive-area">
     <div class="site-container">
         <header class="page-header">
-            <h1 class="page-title"><?php single_cat_title(); ?></h1>
+            <h1 class="page-title"><?php echo esc_html(single_cat_title()); ?></h1>
         </header>
         <div class="category-archive-layout">
             <?php if (have_posts()) : ?>
@@ -16,7 +16,7 @@
                 <?php endwhile; ?>
                 <?php the_posts_pagination(); ?>
             <?php else : ?>
-                <p><?php esc_html_e('No posts found.', 'yourtheme'); ?></p>
+                <p><?php esc_html_e('No posts found.', 'kadence'); ?></p>
             <?php endif; ?>
         </div>
     </div>

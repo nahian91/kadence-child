@@ -36,12 +36,12 @@ $featured_image_url = get_the_post_thumbnail_url($featured_post->ID, 'medium');
     <div class="site-container">
         <div class="featured-post">
             <div class="featured-post-content">
-                <span><a href="<?php echo esc_url($cat_link);?>"><?php echo $cat->name;?></a></span>
-                <h4><a href="<?php echo esc_url(get_the_permalink( $featured_post->ID ));?>"><?php echo $featured_post->post_title;?></a></h4>
-                <p><?php echo $featured_post->post_excerpt;?></p>
+                <span><a href="<?php echo esc_url($cat_link);?>"><?php echo esc_html($cat->name);?></a></span>
+                <h4><a href="<?php echo esc_url(get_the_permalink( $featured_post->ID ));?>"><?php echo esc_html($featured_post->post_title);?></a></h4>
+                <p><?php echo esc_html($featured_post->post_excerpt);?></p>
             </div>
             <div class="featured-post-img">
-                <img src="<?php echo $featured_image_url;?>" alt="">
+                <img src="<?php echo esc_url($featured_image_url);?>" alt="">
             </div>
         </div>
     </div>

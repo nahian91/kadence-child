@@ -16,10 +16,10 @@
         <div class="form-demos-preview-box">
             <div class="form-demos-preview-info">
                 <h4><?php the_title();?></h4>
-                <a href="<?php echo $forms_demo_preview_button_1_url;?>"><?php echo $forms_demo_preview_button_1_text;?></a>
+                <a href="<?php echo esc_url($forms_demo_preview_button_1_url);?>"><?php echo esc_html($forms_demo_preview_button_1_text);?></a>
             </div>
             <?php echo $forms_demo_preview_shortcode;?>
-            <a href="<?php echo $forms_demo_preview_button_2_url;?>" class="preview-btn"><?php echo $forms_demo_preview_button_2_text;?></a>
+            <a href="<?php echo esc_url($forms_demo_preview_button_2_url);?>" class="preview-btn"><?php echo esc_html($forms_demo_preview_button_2_text);?></a>
         </div>
     </div>
 </section>

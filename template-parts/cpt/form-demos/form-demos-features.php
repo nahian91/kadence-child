@@ -7,7 +7,7 @@
         ?>
             <section class="single-form-features-area">
                 <div class="site-container">
-                    <h4 class="section-title"><?php echo $forms_demo_features_title;?></h4>
+                    <h4 class="section-title"><?php echo esc_html($forms_demo_features_title);?></h4>
                     <div class="single-form-features">
                         <?php 
                             foreach($forms_demo_features as $feature) {

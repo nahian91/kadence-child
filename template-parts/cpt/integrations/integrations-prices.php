@@ -1,35 +1,10 @@
-<?php
-
-/**
- * Prices Block Template.
-*/
-
-// Create id attribute allowing for custom "anchor" value.
-$id = 'prices-' . $block['id'];
-if( !empty($block['anchor']) ) {
-    $id = $block['anchor'];
-}
-
-// Create class attribute allowing for custom "className" and "align" values.
-$className = 'prices';
-if( !empty($block['className']) ) {
-    $className .= ' ' . $block['className'];
-}
-if( !empty($block['align']) ) {
-    $className .= ' align' . $block['align'];
-}
-
-// Load values and assing defaults.
-
-// $post_layout_title =  get_field('post_layout_title');
-// $post_layout_button =  get_field('post_layout_button');
-// $posts_select =  get_field('posts_select');
-
-?>
-
 <!-- Prices Section Start --->
-<section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?>-area">
+<section class="integrations-price-area">
     <div class="site-container">
+        <div class="section-title">
+            <h4>Money matters. To you. And to us!</h4>
+            <p>We understand your love for page builders. Fluent Forms has deep integrations with two of the most powerful page builders along with its default styler.</p>
+        </div>
         <div class="price-buttons">
             <div class="price-button" data-tab="annual"><?php echo esc_html('Annual', 'kadence') ?></div>
             <div class="price-button" data-tab="standard"><?php echo esc_html('Lifetime', 'kadence') ?></div>

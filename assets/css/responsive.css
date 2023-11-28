@@ -12,6 +12,34 @@
 
 @media only screen and (max-width: 767px) {
 
+    /* Integrations */
+    .single-similar{
+        flex-basis: 100%;
+    }
+    .integrations-image-box-column {
+        flex-direction: column;
+    }
+    .single-integration-box-column {
+        padding: 25px;
+    }    
+    .section-title h4 {
+        font-size: 26px;
+        line-height: 35px;
+    }
+    .single-integration-feature {
+        flex-basis: 100%;
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+    .single-integration-feature h3 {
+        font-size: 24px;
+    }
+    .integrations-hero {
+        flex-direction: column;
+    }
+    .hero-content {
+        margin-right: 0;
+    }
 
     /* Author */
     .single-author-posts {

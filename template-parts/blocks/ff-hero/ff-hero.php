@@ -42,12 +42,12 @@ $hero_image_alt = $hero_image['alt'];
                 <?php 
                     if($hero_button_url) {
                         ?>
-                            <a href="<?php echo $hero_button_url; ?>" class="btn-bg-primary"><?php echo $hero_button_label; ?></a>
+                            <a href="<?php echo esc_url($hero_button_url); ?>" class="btn-bg-primary"><?php echo esc_html($hero_button_label); ?></a>
                         <?php
                     }
                 ?>
             </div>
-            <img src="<?php echo $hero_image_url; ?>" alt="<?php echo $hero_image_alt; ?>" class="hero-img">
+            <img src="<?php echo esc_url($hero_image_url); ?>" alt="<?php echo esc_attr($hero_image_alt); ?>" class="hero-img">
         </div>
     </div>
 </section>

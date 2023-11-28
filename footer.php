@@ -47,13 +47,13 @@ $footer_menu_title5 = $footer_menu_title['footer_menu_5_title'];
                     ?>
                     <p><?php echo $footer_description;?></p>
                     <?php echo $footer_form;?>
-                    <span>We won't send you spam. <br>Unsubscribe at any time.</span>
+                    <span><?php esc_html('We wont send you spam. <br>Unsubscribe at any time.', 'kadence') ?></span>
                     <div class="footer-social">
                         <?php  
                             if($footer_socials) {
                                 foreach($footer_socials as $social) {
                                     ?>                                    
-                                        <a href="<?php echo $social['footer_social_url']; ?>"><img src="<?php echo $social['footer_social_icon']['url']; ?>" alt=""></a>
+                                        <a href="<?php echo esc_url($social['footer_social_url']); ?>"><img src="<?php echo esc_url($social['footer_social_icon']['url']); ?>" alt=""></a>
                                     <?php
                                 }
                                 ?>
@@ -66,7 +66,7 @@ $footer_menu_title5 = $footer_menu_title['footer_menu_5_title'];
                 <div class="single-footer">
                     <?php 
                         if($footer_menu_title1) {
-                            ?> <h4><?php echo $footer_menu_title1;?></h4> <?php
+                            ?> <h4><?php echo esc_html($footer_menu_title1);?></h4> <?php
                         }
                     ?>                    
                     <?php 
@@ -78,7 +78,7 @@ $footer_menu_title5 = $footer_menu_title['footer_menu_5_title'];
                 <div class="single-footer">
                     <?php 
                         if($footer_menu_title2) {
-                            ?> <h4><?php echo $footer_menu_title2;?></h4> <?php
+                            ?> <h4><?php echo esc_html($footer_menu_title2);?></h4> <?php
                         }
                     ?>     
                     <?php 
@@ -90,7 +90,7 @@ $footer_menu_title5 = $footer_menu_title['footer_menu_5_title'];
                 <div class="single-footer">
                     <?php 
                         if($footer_menu_title3) {
-                            ?> <h4><?php echo $footer_menu_title3;?></h4> <?php
+                            ?> <h4><?php echo esc_html($footer_menu_title3);?></h4> <?php
                         }
                     ?>     
                     <?php 
@@ -102,7 +102,7 @@ $footer_menu_title5 = $footer_menu_title['footer_menu_5_title'];
                 <div class="single-footer">
                     <?php 
                         if($footer_menu_title4) {
-                            ?> <h4><?php echo $footer_menu_title4;?></h4> <?php
+                            ?> <h4><?php echo esc_html($footer_menu_title4);?></h4> <?php
                         }
                     ?>     
                     <?php 
@@ -114,7 +114,7 @@ $footer_menu_title5 = $footer_menu_title['footer_menu_5_title'];
                 <div class="single-footer">
                     <?php 
                         if($footer_menu_title5) {
-                            ?> <h4><?php echo $footer_menu_title5;?></h4> <?php
+                            ?> <h4><?php echo esc_html($footer_menu_title5);?></h4> <?php
                         }
                     ?>     
                     <?php 
@@ -145,7 +145,6 @@ $footer_menu_title5 = $footer_menu_title['footer_menu_5_title'];
     <svg data-name="1-Arrow Up" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="m26.71 10.29-10-10a1 1 0 0 0-1.41 0l-10 10 1.41 1.41L15 3.41V32h2V3.41l8.29 8.29z"/></svg>
     </a>
 </div>
-
 
 <?php do_action( 'kadence_after_wrapper' ); ?>
 
