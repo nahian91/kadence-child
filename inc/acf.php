@@ -94,6 +94,17 @@ function ff_acf_init_block_types() {
       'icon'              => 'admin-comments',
       'keywords'          => array( 'posts', 'fluent' ),
     ));
+
+    // Register Featured Post Block.
+    acf_register_block_type(array(
+      'name'              => 'hero-home',
+      'title'             => __('Hero Home', 'kadence'),
+      'description'       => __('A custom description for hero home section.', 'kadence'),
+      'render_callback'   => 'ff_acf_block_render_callback',
+      'category'          => 'formatting',
+      'icon'              => 'admin-comments',
+      'keywords'          => array( 'hero', 'fluent' ),
+    ));
   }
 }
 add_action('acf/init', 'ff_acf_init_block_types');

@@ -1,13 +1,13 @@
 {
-    "key": "group_6561050c63238",
-    "title": "Block - Prices",
+    "key": "group_6560dfa282a7a",
+    "title": "Block - Featured Post",
     "fields": [
         {
-            "key": "field_6561050c5a073",
-            "label": "Heading",
-            "name": "heading",
+            "key": "field_6560dfa2c3ab1",
+            "label": "Featured Post",
+            "name": "featured_post",
             "aria-label": "",
-            "type": "text",
+            "type": "post_object",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,11 +16,14 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
+            "post_type": [
+                "post"
+            ],
+            "taxonomy": "",
+            "return_format": "object",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 1
         }
     ],
     "location": [
@@ -28,7 +31,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/prices"
+                "value": "acf\/featured-post"
             }
         ]
     ],

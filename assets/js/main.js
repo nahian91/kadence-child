@@ -1,4 +1,9 @@
 jQuery(document).ready(function($) {
+
+    $('#mobile-menu-button').on('click', function () {
+        $('#menu-main-menu').slideToggle();
+    });
+
     // Initial setup
     $(".price-content:first").addClass("active-tab");
     $(".price-button:first").addClass("active-button");

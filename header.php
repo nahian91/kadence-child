@@ -55,6 +55,7 @@ $header_buttons = get_field('buttons', 'option');
                         wp_nav_menu( array( 'theme_location' => 'main_menu' ) );
                     }
                 ?>
+				<button id="mobile-menu-button">&#9776; Menu</button>
 				<?php 
 					if($header_buttons['button_url']) {
 						?>
@@ -72,4 +73,4 @@ $header_buttons = get_field('buttons', 'option');
 		 * Hook for top of inner wrap.
 		 */
 		do_action( 'kadence_before_content' );
-		?>
+	?>

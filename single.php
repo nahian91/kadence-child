@@ -38,7 +38,7 @@
                         <?php echo get_avatar($author_data->ID, 96);?>
                     </div>
                     <div class="author-content">
-                    <?php                  
+                    <?php                
                         if ($author_data) {
                             ?>
                                 <h4><?php echo esc_html($author_data->display_name); ?></h4>
@@ -46,7 +46,6 @@
                             <?php 
                         }
                         ?>
-
                     </div>
                 </div>
                 <div class="single-related-posts">

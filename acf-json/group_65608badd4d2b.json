@@ -1,11 +1,11 @@
 {
-    "key": "group_6561050c63238",
-    "title": "Block - Prices",
+    "key": "group_65608badd4d2b",
+    "title": "Block - CTA",
     "fields": [
         {
-            "key": "field_6561050c5a073",
-            "label": "Heading",
-            "name": "heading",
+            "key": "field_65608bad6a65c",
+            "label": "",
+            "name": "",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -28,7 +28,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf\/prices"
+                "value": "acf\/cta"
             }
         ]
     ],

@@ -58,7 +58,7 @@ p{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 40px 0;
+    padding: 25px 0;
   }
   .header ul {
     list-style: none;
@@ -75,6 +75,9 @@ p{
     font-size: 16px;
     line-height: 25px;
   }
+  #mobile-menu-button {
+    display: none;
+  }
   
 .btn-bg-white {
     background-color: #fff;
@@ -86,7 +89,13 @@ p{
     font-size: 16px;
     line-height: 25px;
     font-weight: 700;
+    transition: .3s;
   }
+  .btn-bg-white:hover{
+    background-color: #2C6CFF;
+    color: #fff;
+  }
+
   .btn-bg-primary {
     background-color: #2C6CFF;
     border: 1px solid #2C6CFF;
@@ -94,11 +103,17 @@ p{
     display: inline-block;
     border-radius: 5px;
     text-decoration: none;
-    padding: 12px 35px;
+    padding: 10px 35px;
     font-size: 16px;
     line-height: 25px;
     font-weight: 700;
     box-shadow: 0px 10px 35px 0px rgba(64, 89, 255, 0.30);
+    transition: .3s;
+    border: 2px solid transparent;
+  }
+  .btn-bg-primary:hover{
+    background-color: transparent;
+    border-color: #2C6CFF;
   }
 
 /* Footer */
@@ -1000,9 +1015,9 @@ p{
   padding: 0;
   margin: 0;
 }
-.forms-demo-category ul li.active-button {
-  background-color: transparent;
-  color: #0976FF;
+.forms-demo-category ul li.active-button, .forms-demo-category ul li.active-button span {
+	background-color: transparent;
+	color: #0976FF;
 }
 .forms-demo-category ul li span {
   color: #B2C6DE;
@@ -1106,10 +1121,15 @@ p{
   text-transform: uppercase;
   font-size: 15px;
   line-height: 24px;
-  display: ;
   display: inline-block;
   padding: 12px 18px;
   border-radius: 5px;
+  border: 2px solid transparent;
+  transition: .3s;
+}
+.form-demos-preview-info a:hover{
+  background-color: transparent;
+  border-color: #2c6cff;
 }
 
 .single-form-features-area {
@@ -1182,6 +1202,7 @@ p{
   background-color: #ECEEF3;
   padding: 20px 25px;
   border-radius: 10px;
+  margin-bottom: 20px;
 }
 .single-used-fileds svg {
   position: absolute;
@@ -1365,9 +1386,15 @@ header.sticky {
   color: #fff;
   text-decoration: none;
   text-transform: uppercase;
-  padding: 10px 40px;
+  padding: 15px 40px 10px;
   margin-bottom: 30px;
   border-radius: 5px;
+  transition: .3s;
+  border: 2px solid transparent;
+}
+.preview-btn:hover{
+  background-color: transparent;
+  border-color: #2c6cff;
 }
 .price-area {
 	padding: 90px 0;
@@ -1539,12 +1566,78 @@ header.sticky {
   border-radius: 5px;
 }
 
-.hero-content p {
+.integrations-hero-content p {
   color: #696F84;
   font-size: 22px;
   line-height: 35px;
   max-width: 600px;
 }
-.hero-content {
+.integrations-hero-content {
   margin-right: 130px;
+}
+.subscribe-widget-content .ff-t-cell.ff-t-column-1 {
+  flex-basis: 100% !important;
+}
+.subscribe-widget-content .ff-t-container {
+  display: inherit;
+}
+.subscribe-widget-content .ff-el-group {
+  position: relative;
+}
+.subscribe-widget-content .ff-t-cell.ff-t-column-2 {
+  position: absolute;
+  right: 0;
+  width: 90px;
+  top: 0;
+}
+.subscribe-widget-content .ff-t-container.ff-column-container.ff_columns_total_2 {
+  position: relative;
+}
+.subscribe-widget-content #ff_4_email {
+  padding: 9px;
+}
+
+.single-post-sidebar .kb-table-of-content-wrap {
+  padding: 0 !important;
+}
+.single-post-sidebar .kb-table-of-content-wrap span {
+  font-size: 26px;
+  line-height: 41px;
+  font-weight: 700;
+}
+.single-post-sidebar .kb-table-of-content-wrap ul {
+  padding-left: 20px !important;
+}
+.single-post-sidebar .kb-table-of-content-wrap ul li {
+  border-bottom: 1px solid #d8dcf0;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+.single-post-sidebar .kb-table-of-content-wrap ul li a {
+  text-decoration: none !important;
+}
+
+.hero-home {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.hero-home-content {
+  flex-basis: 40%;
+}
+.hero-home-right {
+  flex-basis: 50%;
+}
+.hero-home-content h4 {
+  font-size: 50px;
+  line-height: 70px;
+}
+.hero-home-img {
+  display: flex;
+  align-items: center;
+  margin: 20px 0 50px;
+}
+.hero-home-img img {
+  margin-right: 30px;
 }

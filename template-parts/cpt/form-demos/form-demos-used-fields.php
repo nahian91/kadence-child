@@ -24,7 +24,7 @@
                                         <?php echo esc_html($field_text);?>
                                     </span>
                                         <?php 
-                                            if($field_check == 'free') {
+                                            if($field_check == 'pro') {
                                                 ?>
                                                     <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <circle cx="15.5" cy="15.5" r="15" fill="white" stroke="#B2C6DE"/>
